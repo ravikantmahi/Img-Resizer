@@ -20,6 +20,11 @@ body { background-color: var(--bg-color); color: var(--text-main); display: flex
 .header-content h1 { font-size: 2.2rem; font-weight: 700; margin-bottom: 0.5rem; display: flex; align-items: center; justify-content: center; gap: 10px; }
 .header-content p { color: #e2e8f0; font-size: 1.1rem; max-width: 600px; margin: 0 auto; }
 
+/* Header Logo */
+.header-logo-wrap { display: flex; justify-content: center; margin-bottom: 1rem; }
+.header-logo { width: 150px; height: 90px; object-fit: contain; border-radius: 5%; background: white; padding: 6px; box-shadow: 0 4px 16px rgba(0,0,0,0.25), 0 0 0 3px rgba(255,255,255,0.3); transition: transform 0.3s ease, box-shadow 0.3s ease; }
+.header-logo:hover { transform: scale(1.07); box-shadow: 0 8px 24px rgba(0,0,0,0.3), 0 0 0 4px rgba(255,255,255,0.5); }
+
 /* Main Container */
 .container { max-width: 850px; margin: -2rem auto 3rem; padding: 0 1rem; flex: 1; width: 100%; z-index: 10; position: relative; }
 
