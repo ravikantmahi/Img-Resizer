@@ -19,15 +19,14 @@ document.querySelectorAll('.drop-zone').forEach(zone => {
 
 async function processFileOnServer(file, type, zoneElement) {
     if (!file.type.match('image.*')) {
-        alert('Please upload an image file.'); return;
+        alert('Please upload a valid image file (JPG, PNG).'); 
+        return;
     }
 
-    const textElement = document.getElementById(`text-${type}`);
-    const originalText = textElement.innerHTML;
-    
-    // Show loading state
+    // UI: Show loading spinner, hide previous results
     zoneElement.classList.add('loading');
-    textElement.innerText = "Processing on server... Please wait.";
+    document.getElementById(`loader-${type}`).hidden = false;
+    document.getElementById(`result-${type}`).hidden = true;
 
     const formData = new FormData();
     formData.append('image', file);
@@ -38,7 +37,7 @@ async function processFileOnServer(file, type, zoneElement) {
             body: formData
         });
 
-        if (!response.ok) throw new Error('Server processing failed.');
+        if (!response.ok) throw new Error('Server processing failed. Please try again.');
 
         const blob = await response.blob();
         displayResult(blob, type);
@@ -46,9 +45,12 @@ async function processFileOnServer(file, type, zoneElement) {
     } catch (error) {
         alert('Error: ' + error.message);
     } finally {
-        // Remove loading state
+        // UI: Remove loading state
         zoneElement.classList.remove('loading');
-        textElement.innerHTML = originalText;
+        document.getElementById(`loader-${type}`).hidden = true;
+        
+        // Reset file input so the same file can be selected again if needed
+        zoneElement.querySelector('input[type="file"]').value = '';
     }
 }
 
@@ -61,9 +63,13 @@ function displayResult(blob, type) {
     const infoText = document.getElementById(`info-text-${type}`);
     const downloadBtn = document.getElementById(`download-${type}`);
 
+    // Set Image and Text
     previewImg.src = url;
-    infoText.innerText = `Success! Exact Match: ${kb} KB`;
+    infoText.innerHTML = `<i class="fa-solid fa-circle-check"></i> Success! Exact Size: <strong>${kb} KB</strong>`;
+    
+    // Configure Download
     downloadBtn.href = url;
     
+    // Show Result with animation
     resultArea.hidden = false;
 }

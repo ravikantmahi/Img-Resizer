@@ -3,67 +3,101 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Government Image Resizer Tool</title>
+    <title>Gov Image Resizer | Strict DPI & Size</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
     <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
     <header class="app-header">
-        <h1>Government Image Resizer Tool</h1>
-        <p>Strict processing for exact Dimensions, File Size, and DPI.</p>
+        <div class="header-content">
+            <h1><i class="fa-solid fa-passport"></i> Government Image Resizer</h1>
+            <p>Strict processing for exact Dimensions, File Size, and DPI Requirements.</p>
+        </div>
     </header>
 
     <main class="container">
         <section class="upload-card">
             <div class="card-header">
-                <h2>1. Passport Photo</h2>
+                <div class="title-group">
+                    <i class="fa-solid fa-camera icon-blue"></i>
+                    <h2>1. Passport Photo</h2>
+                </div>
                 <span class="badge">132x170 px | 5-50KB | 96-300 DPI</span>
             </div>
             <div class="drop-zone" id="drop-photo" data-type="photo">
-                <p id="text-photo">Drag & Drop Photo Here or <label class="file-label">Browse<input type="file" accept="image/*" hidden></label></p>
+                <div class="upload-content">
+                    <i class="fa-solid fa-cloud-arrow-up fa-3x upload-icon"></i>
+                    <p id="text-photo">Drag & Drop Photo Here or <label class="file-label">Browse<input type="file" accept="image/*" hidden></label></p>
+                </div>
+                <div class="loader" id="loader-photo" hidden></div>
             </div>
             <div class="result-area" id="result-photo" hidden>
                 <div class="preview-container"><img id="preview-img-photo" alt="Preview"></div>
                 <div class="info">
-                    <p id="info-text-photo" class="success-text"></p>
-                    <a id="download-photo" class="btn-download" download="photo_resized.jpg">Download Photo</a>
+                    <p id="info-text-photo" class="success-text"><i class="fa-solid fa-circle-check"></i> Success!</p>
+                    <a id="download-photo" class="btn-download" download="photo_resized.jpg"><i class="fa-solid fa-download"></i> Download Photo</a>
                 </div>
             </div>
         </section>
 
         <section class="upload-card">
             <div class="card-header">
-                <h2>2. Signature</h2>
+                <div class="title-group">
+                    <i class="fa-solid fa-signature icon-blue"></i>
+                    <h2>2. Signature</h2>
+                </div>
                 <span class="badge">170x132 px | 5-20KB | 96-200 DPI</span>
             </div>
             <div class="drop-zone" id="drop-signature" data-type="signature">
-                <p id="text-signature">Drag & Drop Signature Here or <label class="file-label">Browse<input type="file" accept="image/*" hidden></label></p>
+                <div class="upload-content">
+                    <i class="fa-solid fa-cloud-arrow-up fa-3x upload-icon"></i>
+                    <p id="text-signature">Drag & Drop Signature Here or <label class="file-label">Browse<input type="file" accept="image/*" hidden></label></p>
+                </div>
+                <div class="loader" id="loader-signature" hidden></div>
             </div>
             <div class="result-area" id="result-signature" hidden>
                 <div class="preview-container"><img id="preview-img-signature" alt="Preview"></div>
                 <div class="info">
-                    <p id="info-text-signature" class="success-text"></p>
-                    <a id="download-signature" class="btn-download" download="signature_resized.jpg">Download Signature</a>
+                    <p id="info-text-signature" class="success-text"><i class="fa-solid fa-circle-check"></i> Success!</p>
+                    <a id="download-signature" class="btn-download" download="signature_resized.jpg"><i class="fa-solid fa-download"></i> Download Signature</a>
                 </div>
             </div>
         </section>
 
         <section class="upload-card">
             <div class="card-header">
-                <h2>3. Left Thumb Impression</h2>
+                <div class="title-group">
+                    <i class="fa-solid fa-fingerprint icon-blue"></i>
+                    <h2>3. Left Thumb Impression</h2>
+                </div>
                 <span class="badge">170x132 px | 5-20KB | 96-200 DPI</span>
             </div>
             <div class="drop-zone" id="drop-thumb" data-type="thumb">
-                <p id="text-thumb">Drag & Drop Thumb Here or <label class="file-label">Browse<input type="file" accept="image/*" hidden></label></p>
+                <div class="upload-content">
+                    <i class="fa-solid fa-cloud-arrow-up fa-3x upload-icon"></i>
+                    <p id="text-thumb">Drag & Drop Thumb Here or <label class="file-label">Browse<input type="file" accept="image/*" hidden></label></p>
+                </div>
+                <div class="loader" id="loader-thumb" hidden></div>
             </div>
             <div class="result-area" id="result-thumb" hidden>
                 <div class="preview-container"><img id="preview-img-thumb" alt="Preview"></div>
                 <div class="info">
-                    <p id="info-text-thumb" class="success-text"></p>
-                    <a id="download-thumb" class="btn-download" download="thumb_resized.jpg">Download Thumb</a>
+                    <p id="info-text-thumb" class="success-text"><i class="fa-solid fa-circle-check"></i> Success!</p>
+                    <a id="download-thumb" class="btn-download" download="thumb_resized.jpg"><i class="fa-solid fa-download"></i> Download Thumb</a>
                 </div>
             </div>
         </section>
     </main>
+
+    <footer class="app-footer">
+        <div class="footer-content">
+            <p>Developed with <i class="fa-solid fa-heart heart-icon"></i> for exact government portal compliance.</p>
+            <a href="https://github.com/ravikantmahi" target="_blank" rel="noopener noreferrer" class="github-link">
+                <i class="fa-brands fa-github"></i> ravikantmahi
+            </a>
+        </div>
+    </footer>
+
     <script src="js/script.js"></script>
 </body>
 </html>
