@@ -23,15 +23,20 @@ async function processFileOnServer(file, type, zoneElement) {
         return;
     }
 
-    // UI: Show loading spinner, hide previous results
+    const textElement = document.getElementById(`text-${type}`);
+    const originalText = textElement.innerHTML; // Save original text
+
+    // 1. STRICT LOADING STATE: Hide old results, show spinner
     zoneElement.classList.add('loading');
     document.getElementById(`loader-${type}`).hidden = false;
-    document.getElementById(`result-${type}`).hidden = true;
+    document.getElementById(`result-${type}`).hidden = true; // GUARANTEE SUCCESS IS HIDDEN
+    textElement.innerHTML = "<strong>Processing on server... Please wait.</strong>";
 
     const formData = new FormData();
     formData.append('image', file);
 
     try {
+        // 2. AWAIT SERVER: Pauses the code here until the backend finishes
         const response = await fetch(`/api/upload/${type}`, {
             method: 'POST',
             body: formData
@@ -40,14 +45,17 @@ async function processFileOnServer(file, type, zoneElement) {
         if (!response.ok) throw new Error('Server processing failed. Please try again.');
 
         const blob = await response.blob();
+        
+        // 3. SERVER FINISHED: Now we trigger the success display
         displayResult(blob, type);
 
     } catch (error) {
         alert('Error: ' + error.message);
     } finally {
-        // UI: Remove loading state
+        // 4. CLEANUP: Remove spinner, restore original dropzone text
         zoneElement.classList.remove('loading');
         document.getElementById(`loader-${type}`).hidden = true;
+        textElement.innerHTML = originalText;
         
         // Reset file input so the same file can be selected again if needed
         zoneElement.querySelector('input[type="file"]').value = '';
@@ -63,13 +71,16 @@ function displayResult(blob, type) {
     const infoText = document.getElementById(`info-text-${type}`);
     const downloadBtn = document.getElementById(`download-${type}`);
 
-    // Set Image and Text
+    // Wait for the image to physically load into the browser memory
+    previewImg.onload = () => {
+        // ONLY show the success message after the image is fully rendered
+        infoText.innerHTML = `<i class="fa-solid fa-circle-check"></i> Success! Exact Size: <strong>${kb} KB</strong>`;
+        downloadBtn.href = url;
+        
+        // Unhide the result area (revealing the success message and button)
+        resultArea.hidden = false; 
+    };
+
+    // Trigger the image load
     previewImg.src = url;
-    infoText.innerHTML = `<i class="fa-solid fa-circle-check"></i> Success! Exact Size: <strong>${kb} KB</strong>`;
-    
-    // Configure Download
-    downloadBtn.href = url;
-    
-    // Show Result with animation
-    resultArea.hidden = false;
 }
