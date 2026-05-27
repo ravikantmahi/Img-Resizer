@@ -1,18 +1,22 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Gov Image Resizer | Strict DPI & Size</title>
-    <link rel="icon" type="image/png" href="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSEY2gE457Gz7rdB3Itw0U7oVQcDARzF8QvHw&s">
+    <link rel="icon" type="image/png"
+        href="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSEY2gE457Gz7rdB3Itw0U7oVQcDARzF8QvHw&s">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
     <link rel="stylesheet" href="css/style.css">
 </head>
+
 <body>
     <header class="app-header">
         <div class="header-content">
             <div class="header-logo-wrap">
-                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSEY2gE457Gz7rdB3Itw0U7oVQcDARzF8QvHw&s" alt="Government Logo" class="header-logo">
+                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSEY2gE457Gz7rdB3Itw0U7oVQcDARzF8QvHw&s"
+                    alt="Government Logo" class="header-logo">
             </div>
             <h1><i class="fa-solid fa-passport"></i> Government Image Resizer</h1>
             <p>Strict processing for exact Dimensions, File Size, and DPI Requirements.</p>
@@ -31,7 +35,8 @@
             <div class="drop-zone" id="drop-photo" data-type="photo">
                 <div class="upload-content">
                     <i class="fa-solid fa-cloud-arrow-up fa-3x upload-icon"></i>
-                    <p id="text-photo">Drag & Drop Photo Here or <label class="file-label">Browse<input type="file" accept="image/*" hidden></label></p>
+                    <p id="text-photo">Drag & Drop Photo Here or <label class="file-label">Browse<input type="file"
+                                accept="image/*" hidden></label></p>
                 </div>
                 <div class="loader" id="loader-photo" hidden></div>
             </div>
@@ -39,7 +44,8 @@
                 <div class="preview-container"><img id="preview-img-photo" alt="Preview"></div>
                 <div class="info">
                     <p id="info-text-photo" class="success-text"><i class="fa-solid fa-circle-check"></i> Success!</p>
-                    <a id="download-photo" class="btn-download" download="photo_resized.jpg"><i class="fa-solid fa-download"></i> Download Photo</a>
+                    <a id="download-photo" class="btn-download" download="photo_resized.jpg"><i
+                            class="fa-solid fa-download"></i> Download Photo</a>
                 </div>
             </div>
         </section>
@@ -55,15 +61,18 @@
             <div class="drop-zone" id="drop-signature" data-type="signature">
                 <div class="upload-content">
                     <i class="fa-solid fa-cloud-arrow-up fa-3x upload-icon"></i>
-                    <p id="text-signature">Drag & Drop Signature Here or <label class="file-label">Browse<input type="file" accept="image/*" hidden></label></p>
+                    <p id="text-signature">Drag & Drop Signature Here or <label class="file-label">Browse<input
+                                type="file" accept="image/*" hidden></label></p>
                 </div>
                 <div class="loader" id="loader-signature" hidden></div>
             </div>
             <div class="result-area" id="result-signature" hidden>
                 <div class="preview-container"><img id="preview-img-signature" alt="Preview"></div>
                 <div class="info">
-                    <p id="info-text-signature" class="success-text"><i class="fa-solid fa-circle-check"></i> Success!</p>
-                    <a id="download-signature" class="btn-download" download="signature_resized.jpg"><i class="fa-solid fa-download"></i> Download Signature</a>
+                    <p id="info-text-signature" class="success-text"><i class="fa-solid fa-circle-check"></i> Success!
+                    </p>
+                    <a id="download-signature" class="btn-download" download="signature_resized.jpg"><i
+                            class="fa-solid fa-download"></i> Download Signature</a>
                 </div>
             </div>
         </section>
@@ -79,7 +88,8 @@
             <div class="drop-zone" id="drop-thumb" data-type="thumb">
                 <div class="upload-content">
                     <i class="fa-solid fa-cloud-arrow-up fa-3x upload-icon"></i>
-                    <p id="text-thumb">Drag & Drop Thumb Here or <label class="file-label">Browse<input type="file" accept="image/*" hidden></label></p>
+                    <p id="text-thumb">Drag & Drop Thumb Here or <label class="file-label">Browse<input type="file"
+                                accept="image/*" hidden></label></p>
                 </div>
                 <div class="loader" id="loader-thumb" hidden></div>
             </div>
@@ -87,7 +97,8 @@
                 <div class="preview-container"><img id="preview-img-thumb" alt="Preview"></div>
                 <div class="info">
                     <p id="info-text-thumb" class="success-text"><i class="fa-solid fa-circle-check"></i> Success!</p>
-                    <a id="download-thumb" class="btn-download" download="thumb_resized.jpg"><i class="fa-solid fa-download"></i> Download Thumb</a>
+                    <a id="download-thumb" class="btn-download" download="thumb_resized.jpg"><i
+                            class="fa-solid fa-download"></i> Download Thumb</a>
                 </div>
             </div>
         </section>
@@ -99,9 +110,14 @@
             <a href="https://github.com/ravikantmahi" target="_blank" rel="noopener noreferrer" class="github-link">
                 <i class="fa-brands fa-github"></i> ravikantmahi
             </a>
+            <a href="https://www.linkedin.com/in/ravikantmahi/" target="_blank" rel="noopener noreferrer"
+                class="github-link">
+                <i class="fa-brands fa-linkedin"></i> Ravi Kant
+            </a>
         </div>
     </footer>
 
     <script src="js/script.js"></script>
 </body>
+
 </html>
