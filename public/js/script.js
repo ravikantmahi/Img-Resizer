@@ -75,6 +75,10 @@ function displayResult(blob, type) {
     previewImg.onload = () => {
         // ONLY show the success message after the image is fully rendered
         infoText.innerHTML = `<i class="fa-solid fa-circle-check"></i> Success! Exact Size: <strong>${kb} KB</strong>`;
+        
+        // --- Generate Unique Filename ---
+        const timestamp = Date.now(); // Gets current time in milliseconds
+        downloadBtn.download = `${type}_${timestamp}.jpg`; 
         downloadBtn.href = url;
         
         // Unhide the result area (revealing the success message and button)
